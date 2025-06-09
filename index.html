@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>송파바른정형외과 - 전문적인 정형외과 진료</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <h1>송파바른정형외과</h1>
+                    </a>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">병원소개 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="doctor-profile.html">의료진 소개</a></li>
+                            <li><a href="facilities.html">시설 둘러보기</a></li>
+                            <li><a href="index.html#location">오시는길</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">진료과목 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="medical-subjects.html#cervical">경추(목)질환</a></li>
+                            <li><a href="medical-subjects.html#lumbar">요추(허리)질환</a></li>
+                            <li><a href="medical-subjects.html#shoulder">어깨질환</a></li>
+                            <li><a href="medical-subjects.html#knee">무릎질환</a></li>
+                            <li><a href="medical-subjects.html#elbow-hand">팔꿈치/수부질환</a></li>
+                            <li><a href="medical-subjects.html#foot">족부질환</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">치료프로그램 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="treatment-programs.html#manual-therapy">도수치료</a></li>
+                            <li><a href="treatment-programs.html#shockwave">체외충격파</a></li>
+                            <li><a href="treatment-programs.html#injection">주사치료</a></li>
+                            <li><a href="treatment-programs.html#rehabilitation">재활치료</a></li>
+                            <li><a href="treatment-programs.html#nerve-block">신경차단술</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="medical-guide.html" class="nav-link">진료안내</a>
+                    </li>
+                    
+                </ul>
+                
+                
+                
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 메인 히어로 섹션 -->
+    <section class="hero" id="medical-team">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-main">정확한 진단</span>과 <span class="title-main">전문적인 치료</span>로<br>
+                        건강한 일상을 되찾아드립니다
+                    </h1>
+                    <p class="hero-description">
+                        송파바른정형외과는 정형외과 전문의의 체계적인 진료와<br>
+                        최신 의료장비를 통해 환자 맞춤형 치료를 제공합니다.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <strong>20년+</strong>
+                            <span>임상경험</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>의학박사</strong>
+                            <span>전문의</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>대학교수</strong>
+                            <span>역임</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-phone-volume"></i>
+                            전화 문의
+                        </button>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-hospital"></i>
+                            병원 둘러보기
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="hero-visual">
+                        <div class="medical-card">
+                            <div class="doctor-image">
+                                <img src="profile_pic.png" alt="송파바른정형외과 원장" class="doctor-photo">
+                                <div class="doctor-badge">원장</div>
+                            </div>
+                            <div class="card-header">
+                                <div class="doctor-info">
+                                    <h3>정형외과 전문의</h3>
+                                    <p class="doctor-credentials">송파바른정형외과 원장<br>의학박사 • 전 대학교수</p>
+                                </div>
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+                            <div class="experience-stats">
+                                <div class="stat">
+                                    <strong>20년+</strong>
+                                    <span>임상경력</span>
+                                </div>
+                                <div class="stat">
+                                    <strong>전임교수</strong>
+                                    <span>대학병원</span>
+                                </div>
+                            </div>
+                            <div class="doctor-highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>인제대 의대 • 경희대 의학박사</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-award"></i>
+                                    <span>대한척추외과학회 학술상</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span>미국 Emory대학 교환교수</span>
+                                </div>
+                            </div>
+                            <p class="doctor-description">정형외과 및 척추 전문<br>20년 이상의 풍부한 임상 경험</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 슬라이딩 배너 섹션 -->
+    <section class="sliding-banner-section">
+        <div class="banner-slider">
+            <div class="banner-slide active">
+                <div class="banner-content">
+                    <div class="banner-overlay"></div>
+                </div>
+            </div>
+            
+            <div class="banner-slide">
+                <div class="banner-content">
+                    <div class="banner-overlay"></div>
+                </div>
+            </div>
+            
+            <div class="banner-slide">
+                <div class="banner-content">
+                    <div class="banner-overlay"></div>
+                </div>
+            </div>
+            
+            <div class="banner-slide">
+                <div class="banner-content">
+                    <div class="banner-overlay"></div>
+                </div>
+            </div>
+            
+            <div class="banner-slide">
+                <div class="banner-content">
+                    <div class="banner-overlay"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="banner-controls">
+            <button class="banner-prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="banner-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+                <span class="dot" data-slide="4"></span>
+            </div>
+            <button class="banner-next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- 진료과목 섹션 -->
+    <section class="medical-subjects" id="medical-subjects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">전문 진료과목</h2>
+                <p class="section-description">각 질환별 전문적인 진단과 맞춤 치료를 제공합니다</p>
+            </div>
+            
+            <div class="subjects-grid">
+                <div class="subject-card">
+                    <div class="card-icon">
+                        <img src="images/icons/spine.svg" alt="경추질환 아이콘">
+                    </div>
+                    <h3>경추(목)질환</h3>
+                    <ul class="condition-list">
+                        <li>목디스크 (경추 추간판탈출증)</li>
+                        <li>일자목, 거북목증후군</li>
+                        <li>근막통증증후군 (담 결림)</li>
+                    </ul>
+                    <button class="card-btn" onclick="location.href='medical-subjects.html#cervical'">상세보기</button>
+                </div>
+                
+                <div class="subject-card">
+                    <div class="card-icon">
+                        <img src="images/icons/back-pain.svg" alt="요추질환 아이콘">
+                    </div>
+                    <h3>요추(허리)질환</h3>
+                    <ul class="condition-list">
+                        <li>허리디스크</li>
+                        <li>척추관협착증</li>
+                        <li>척추측만증</li>
+                    </ul>
+                    <button class="card-btn" onclick="location.href='medical-subjects.html#lumbar'">상세보기</button>
+                </div>
+                
+                <div class="subject-card">
+                    <div class="card-icon">
+                        <img src="images/icons/sling.svg" alt="어깨질환 아이콘">
+                    </div>
+                    <h3>어깨질환</h3>
+                    <ul class="condition-list">
+                        <li>오십견</li>
+                        <li>회전근개파열</li>
+                        <li>석회화건염</li>
+                    </ul>
+                    <button class="card-btn" onclick="location.href='medical-subjects.html#shoulder'">상세보기</button>
+                </div>
+                
+                <div class="subject-card">
+                    <div class="card-icon">
+                        <img src="images/icons/leg.svg" alt="무릎질환 아이콘">
+                    </div>
+                    <h3>무릎(관절)질환</h3>
+                    <ul class="condition-list">
+                        <li>퇴행성 관절염</li>
+                        <li>반월상 연골파열</li>
+                        <li>십자인대 파열</li>
+                    </ul>
+                    <button class="card-btn" onclick="location.href='medical-subjects.html#knee'">상세보기</button>
+                </div>
+                
+                <div class="subject-card">
+                    <div class="card-icon">
+                        <img src="images/icons/arm.svg" alt="팔꿈치/수부질환 아이콘">
+                    </div>
+                    <h3>팔꿈치/수부질환</h3>
+                    <ul class="condition-list">
+                        <li>테니스/골프엘보</li>
+                        <li>손목터널증후군</li>
+                        <li>손목건초염</li>
+                    </ul>
+                    <button class="card-btn" onclick="location.href='medical-subjects.html#elbow-hand'">상세보기</button>
+                </div>
+                
+                <div class="subject-card">
+                    <div class="card-icon">
+                        <img src="images/icons/foot.svg" alt="족부질환 아이콘">
+                    </div>
+                    <h3>족부(발)질환</h3>
+                    <ul class="condition-list">
+                        <li>족저근막염</li>
+                        <li>발목염좌</li>
+                        <li>무지외반증</li>
+                    </ul>
+                    <button class="card-btn" onclick="location.href='medical-subjects.html#foot'">상세보기</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 치료프로그램 섹션 -->
+    <section class="treatment-programs" id="treatment-programs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">전문 치료프로그램</h2>
+                <p class="section-description">최신 의료장비와 전문적인 치료기법으로 최적의 결과를 제공합니다</p>
+            </div>
+            
+            <div class="swiper treatment-programs-slider">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1: 도수치료 -->
+                    <div class="swiper-slide">
+                        <div class="program-card">
+                            <div class="program-content">
+                                <h3>도수치료</h3>
+                                <p>전문 치료사의 1:1 맞춤 도수치료로 근골격계 질환을 효과적으로 치료합니다.</p>
+                                <ul class="program-features">
+                                    <li>개인 맞춤형 치료</li>
+                                    <li>전문 도수치료사</li>
+                                    <li>체계적인 운동치료</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 2: 체외충격파치료 -->
+                    <div class="swiper-slide">
+                        <div class="program-card">
+                            <div class="program-content">
+                                <h3>체외충격파치료</h3>
+                                <p>비침습적 치료로 만성통증을 효과적으로 완화하고 조직 재생을 촉진합니다.</p>
+                                <ul class="program-features">
+                                    <li>비수술적 치료</li>
+                                    <li>통증 완화 효과</li>
+                                    <li>조직 재생 촉진</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: 주사(프롤로)치료 -->
+                    <div class="swiper-slide">
+                        <div class="program-card">
+                            <div class="program-content">
+                                <h3>주사(프롤로)치료</h3>
+                                <p>인대와 힘줄을 강화하여 근본적인 통증 개선과 기능 회복을 도모합니다.</p>
+                                <ul class="program-features">
+                                    <li>인대 강화 효과</li>
+                                    <li>근본적 치료</li>
+                                    <li>빠른 회복</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: 재활교정치료 -->
+                    <div class="swiper-slide">
+                        <div class="program-card">
+                            <div class="program-content">
+                                <h3>재활교정치료</h3>
+                                <p>개인별 맞춤 운동치료와 자세교정으로 기능 회복과 재발 방지를 실현합니다.</p>
+                                <ul class="program-features">
+                                    <li>맞춤형 운동치료</li>
+                                    <li>자세 교정</li>
+                                    <li>재발 방지</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 5: 신경차단술 -->
+                    <div class="swiper-slide">
+                        <div class="program-card">
+                            <div class="program-content">
+                                <h3>신경차단술</h3>
+                                <p>정밀한 영상 유도하에 신경 차단으로 즉각적인 통증 완화를 제공합니다.</p>
+                                <ul class="program-features">
+                                    <li>정밀한 시술</li>
+                                    <li>즉각적 효과</li>
+                                    <li>안전한 치료</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-scrollbar"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 진료안내 섹션 -->
+    <section class="medical-info" id="medical-info">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">진료안내</h2>
+                <p class="section-description">편리한 진료를 위한 상세 안내입니다</p>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>진료시간</h3>
+                    <div class="schedule">
+                        <div class="schedule-item">
+                            <span class="day">월, 화, 목, 금</span>
+                            <span class="time">09:00 - 19:00</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="day">수요일</span>
+                            <span class="time">09:00 - 13:30</span>
+                        </div>
+                        <div class="schedule-item">
+                            <span class="day">토요일</span>
+                            <span class="time">09:00 - 14:00</span>
+                        </div>
+                        <div class="schedule-item lunch">
+                            <span class="day">점심시간</span>
+                            <span class="time">13:00 - 14:00</span>
+                        </div>
+                        <div class="schedule-note">
+                            <small>※ 일요일, 공휴일 휴진</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>오시는길</h3>
+                    <div class="location-info">
+                        <p class="address">서울 송파구 가락로 78, 3층 302~304호</p>
+                        <p class="subway">
+                            <i class="fas fa-subway"></i>
+                            석촌역 8호선 620m (도보 7-8분)
+                        </p>
+                        <p class="phone">
+                            <i class="fas fa-phone"></i>
+                            02-423-5501
+                        </p>
+                        <button class="location-btn">
+                            <i class="fas fa-map"></i>
+                            지도에서 보기
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-phone-volume"></i>
+                    </div>
+                    <h3>전화 문의</h3>
+                    <div class="reservation-info">
+                        <p>진료, 예약 등 궁금하신 점을 문의하시면 친절하게 안내해 드립니다.</p>
+                        <div class="reservation-methods">
+                            <div class="method">
+                                <i class="fas fa-phone"></i>
+                                <span>대표 전화</span>
+                                <small>02-423-5501</small>
+                            </div>
+                        </div>
+                        <button class="reservation-btn-main">
+                            <i class="fas fa-phone-alt"></i>
+                            전화 문의하기
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 병원 위치 섹션 -->
+    <section class="location-map" id="location">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">병원 위치</h2>
+                <p class="section-description">송파바른정형외과 찾아오시는 길을 안내해드립니다</p>
+            </div>
+            
+            <div class="map-container">
+                <div class="map-wrapper">
+                    <div class="map-embed" id="naverMap">
+                        <iframe 
+                            src="https://map.naver.com/p/share/simple?title=송파바른정형외과의원&lng=127.1049005&lat=37.5001258&zoom=15"
+                            width="100%" 
+                            height="100%" 
+                            frameborder="0" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            aria-hidden="false" 
+                            tabindex="0">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <div class="location-details">
+                    <div class="location-card">
+                        <div class="location-header">
+                            <h3>송파바른정형외과의원</h3>
+                            <span class="location-badge">정형외과 전문의원</span>
+                        </div>
+                        
+                        <div class="location-info-detailed">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="info-content">
+                                    <strong>주소</strong>
+                                    <p>서울 송파구 가락로 78, 3층 302~304호 (석촌동)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <i class="fas fa-subway"></i>
+                                <div class="info-content">
+                                    <strong>지하철</strong>
+                                    <p>석촌역 8호선 620m (도보 7-8분)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <i class="fas fa-phone"></i>
+                                <div class="info-content">
+                                    <strong>전화번호</strong>
+                                    <p>02-423-5501</p>
+                                </div>
+                            </div>
+                            
+                            <div class="info-item">
+                                <i class="fas fa-car"></i>
+                                <div class="info-content">
+                                    <strong>주차안내</strong>
+                                    <p>건물 지하 주차장 이용 가능</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="location-actions">
+                            <button class="btn btn-primary" onclick="window.open('https://map.naver.com/p/search/송파바른정형외과의원/place/1470136115?c=127.1049005,37.5001258,15,0,0,0,dh', '_blank')">
+                                <i class="fas fa-map"></i>
+                                네이버 지도에서 보기
+                            </button>
+                            <button class="btn btn-outline" onclick="window.open('tel:02-423-5501')">
+                                <i class="fas fa-phone"></i>
+                                전화걸기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <h3>송파바른정형외과의원</h3>
+                    <p class="footer-tagline">정확한 진단, 전문적인 치료</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>서울 송파구 가락로 78, 3층 302~304호 (석촌동)</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>02-423-5501</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-subway"></i>
+                            <span>석촌역 8호선 620m (도보 7-8분)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>진료과목</h4>
+                        <ul>
+                            <li>경추(목) 질환</li>
+                            <li>요추(허리) 질환</li>
+                            <li>어깨 질환</li>
+                            <li>무릎(관절) 질환</li>
+                            <li>팔꿈치/수부 질환</li>
+                            <li>족부(발) 질환</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>치료프로그램</h4>
+                        <ul>
+                            <li>도수치료</li>
+                            <li>체외충격파치료</li>
+                            <li>주사(프롤로)치료</li>
+                            <li>재활교정치료</li>
+                            <li>신경차단술</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>진료시간</h4>
+                        <ul>
+                            <li>월,화,목,금 09:00-19:00</li>
+                            <li>수요일 09:00-13:30</li>
+                            <li>토요일 09:00-14:00</li>
+                            <li>점심시간 13:00-14:00</li>
+                            <li>일요일, 공휴일 휴진</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 송파바른정형외과의원. All rights reserved.</p>
+                <p class="footer-notice">본 웹사이트는 의료광고 심의를 거쳐 제작되었습니다.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 플로팅 액션 버튼 -->
+    <div class="floating-actions">
+        <button class="floating-btn call-btn" onclick="window.open('tel:02-423-5501')" title="전화걸기">
+            <i class="fas fa-phone"></i>
+        </button>
+        <button class="floating-btn location-btn" title="위치 보기">
+            <i class="fas fa-map-marker-alt"></i>
+        </button>
+        <button class="floating-btn top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="위로 이동">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

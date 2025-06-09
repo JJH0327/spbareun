@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>진료과목 - 송파바른정형외과</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    
+
+    <!-- 헤더 -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <h1>송파바른정형외과</h1>
+                    </a>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">병원소개 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="doctor-profile.html">의료진 소개</a></li>
+                            <li><a href="facilities.html">시설 둘러보기</a></li>
+                            <li><a href="index.html#location">오시는길</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">진료과목 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#cervical">경추(목)질환</a></li>
+                            <li><a href="#lumbar">요추(허리)질환</a></li>
+                            <li><a href="#shoulder">어깨질환</a></li>
+                            <li><a href="#knee">무릎질환</a></li>
+                            <li><a href="#elbow-hand">팔꿈치/수부질환</a></li>
+                            <li><a href="#foot">족부질환</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">치료프로그램 <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="treatment-programs.html#manual-therapy">도수치료</a></li>
+                            <li><a href="treatment-programs.html#shockwave">체외충격파</a></li>
+                            <li><a href="treatment-programs.html#injection">주사치료</a></li>
+                            <li><a href="treatment-programs.html#rehabilitation">재활치료</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="medical-guide.html" class="nav-link">진료안내</a>
+                    </li>
+                </ul>
+                
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 페이지 히어로 -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1>전문 진료과목</h1>
+                <p>각 질환별 전문적인 진단과 맞춤 치료를 제공합니다</p>
+                <nav class="breadcrumb">
+                    <a href="index.html">홈</a>
+                    <span>></span>
+                    <span>진료과목</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- 진료과목 상세 -->
+    <section class="medical-subjects-detail">
+        <div class="container">
+            <!-- 경추(목) 질환 -->
+            <div class="subject-detail" id="cervical">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <img src="images/icons/spine.svg" alt="경추질환 아이콘">
+                    </div>
+                    <div class="subject-title">
+                        <h2>경추(목) 질환</h2>
+                        <p>목디스크, 거북목 증후군 등 목 관련 질환 전문 치료</p>
+                    </div>
+                </div>
+
+                <div class="subject-content">
+                    <div class="condition-grid">
+                        <div class="condition-card">
+                            <h3>목디스크 (경추 추간판탈출증)</h3>
+                            <div class="condition-info">
+                                <h4>질환 설명</h4>
+                                <ul>
+                                    <li>경추 뼈와 뼈 사이에서 충격을 흡수하는 디스크(추간판)가 탈출하거나 내부 수액이 빠져 나와 신경을 눌러 통증이 발생하는 질환입니다.</li>
+                                    <li>노화나 일상 생활의 잘못된 습관, 외상 등으로 인해 나타날 수 있습니다.</li>
+                                </ul>
+                            </div>
+                            <div class="condition-info">
+                                <h4>주요 증상</h4>
+                                <ul>
+                                    <li>목이나 어깨 부근의 통증 및 뻐근함</li>
+                                    <li>팔이나 손으로 통증이 옮겨가는 방사통</li>
+                                    <li>심한 경우 감각이상이나 마비증상</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="condition-card">
+                            <h3>일자목, 거북목 증후군</h3>
+                            <div class="condition-info">
+                                <h4>질환 설명</h4>
+                                <ul>
+                                    <li>C자형 커브의 목뼈가 잘못된 자세로 인해 일자형으로 변형되거나, 더 악화되어 거북목 형태로 변형된 경우를 말합니다.</li>
+                                    <li>고개를 숙이고 스마트폰을 보거나 구부정한 자세를 장시간 유지할 경우 발생할 수 있습니다.</li>
+                                </ul>
+                            </div>
+                            <div class="condition-info">
+                                <h4>주요 증상</h4>
+                                <ul>
+                                    <li>뒷목과 어깨의 뻐근함과 통증</li>
+                                    <li>만성 두통 및 어깨결림</li>
+                                    <li>피로감 및 집중력 저하</li>
+                                    <li>증상 악화 시 목디스크로 진행될 수 있습니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="condition-card">
+                            <h3>근막통증증후군</h3>
+                            <div class="condition-info">
+                                <h4>질환 설명</h4>
+                                <ul>
+                                    <li>흔히 '담'이라고 하는 증상으로, 주로 목, 어깨, 등 윗부분의 근육이 경직되고 통증유발점이 생겨 뭉치고 뻣뻣해지는 증상을 말합니다.</li>
+                                    <li>무리한 운동, 반복적인 사용, 잘못된 자세, 스트레스 등이 원인이 될 수 있습니다.</li>
+                                </ul>
+                            </div>
+                            <div class="condition-info">
+                                <h4>주요 증상</h4>
+                                <ul>
+                                    <li>목, 어깨의 통증</li>
+                                    <li>움직일 때 결리는 느낌</li>
+                                    <li>두통</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 요추(허리) 질환 -->
+            <div class="subject-detail" id="lumbar">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <img src="images/icons/back-pain.svg" alt="요추질환 아이콘">
+                    </div>
+                    <div class="subject-title">
+                        <h2>요추(허리) 질환</h2>
+                        <p>허리디스크, 척추관협착증 등 허리 관련 질환 전문 치료</p>
+                    </div>
+                </div>
+
+                <div class="subject-content">
+                    <div class="condition-grid">
+                        <div class="condition-card">
+                            <h3>허리디스크 (요추 추간판탈출증)</h3>
+                            <div class="condition-info">
+                                <h4>질환 설명</h4>
+                                <ul>
+                                    <li>요추 뼈 사이에서 완충작용을 하는 디스크(추간판)가 밀려나와 신경을 압박하여 통증이 발생하는 질환입니다.</li>
+                                    <li>주로 노화로 인한 퇴행성 변화, 장시간 허리에 무리를 주는 잘못된 자세, 외상 등으로 인해 발생합니다.</li>
+                                </ul>
+                            </div>
+                            <div class="condition-info">
+                                <h4>주요 증상</h4>
+                                <ul>
+                                    <li>허리 통증과 함께 엉덩이, 다리, 발바닥까지 통증이 이어질 수 있습니다.</li>
+                                    <li>심할 경우 다리에 감각이 둔해지거나 마비 증상이 발생할 수 있습니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="condition-card">
+                            <h3>척추관협착증</h3>
+                            <div class="condition-info">
+                                <h4>질환 설명</h4>
+                                <ul>
+                                    <li>주로 노화로 인해 척수 신경이 지나가는 척추관이 좁아져 신경을 압박하고 통증을 유발하는 질환입니다.</li>
+                                    <li>허리디스크와 증상이 비슷하지만, 허리를 펼 때 통증이 나타나는 차이가 있습니다.</li>
+                                </ul>
+                            </div>
+                            <div class="condition-info">
+                                <h4>주요 증상</h4>
+                                <ul>
+                                    <li>통증과 저림 증상</li>
+                                    <li>심할 경우 다리 근력저하 및 마비증상</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="condition-card">
+                            <h3>척추측만증</h3>
+                            <div class="condition-info">
+                                <h4>질환 설명</h4>
+                                <ul>
+                                    <li>정면에서 볼 때 일자여야 할 척추가 C자 또는 S자 형태로 휘거나 굽는 경우를 말합니다.</li>
+                                    <li>잘못된 자세 습관으로 인해 발생할 수 있습니다.</li>
+                                </ul>
+                            </div>
+                            <div class="condition-info">
+                                <h4>주요 증상</h4>
+                                <ul>
+                                    <li>허리 통증</li>
+                                    <li>다리가 저리고 뭉치는 느낌</li>
+                                    <li>두통과 만성피로</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 어깨 질환 -->
+            <div class="subject-detail" id="shoulder">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <img src="images/icons/sling.svg" alt="어깨질환 아이콘">
+                    </div>
+                    <div class="subject-title">
+                        <h2>어깨 질환</h2>
+                        <p>오십견, 석회화건염, 회전근개 손상 등 어깨 질환 전문 치료</p>
+                    </div>
+                </div>
+                <div class="subject-content">
+                    <div class="condition-grid">
+                        <div class="condition-card">
+                            <h3>오십견 (유착성 관절낭염)</h3>
+                            <div class="condition-info">
+                                <h4>질환 설명</h4>
+                                <ul>
+                                    <li>주로 노화로 인해 어깨 관절낭에 염증과 유착이 생겨 통증이 발생하는 질환입니다. 흔히 동결견이라고도 불립니다.</li>
+                                </ul>
+                            </div>
+                            <div class="condition-info">
+                                <h4>주요 증상</h4>
+                                <ul>
+                                    <li>어깨 통증과 운동 제한</li>
+                                    <li>야간 통증 심화</li>
+                                    <li>팔을 들어 올리거나 옷을 입고 벗기 어려움</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="condition-card">
+                            <h3>석회화건염</h3>
+                            <div class="condition-info">
+                                <h4>질환 설명</h4>
+                                <ul>
+                                    <li>어깨 힘줄 속에 칼슘이 침착(석회화)되어 힘줄 내 압력을 높여 극심한 통증을 유발하는 질환입니다.</li>
+                                    <li>정확한 원인은 불분명하나 노화, 과도한 어깨 사용 등이 원인으로 추정됩니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="condition-card">
+                            <h3>회전근개 손상</h3>
+                            <div class="condition-info">
+                                <h4>질환 설명</h4>
+                                <ul>
+                                    <li>어깨 관절을 움직이고 안정성을 유지하는 4개의 근육(회전근개) 힘줄이 변형되거나 파열되는 질환입니다.</li>
+                                </ul>
+                            </div>
+                            <div class="condition-info">
+                                <h4>주요 증상</h4>
+                                <ul>
+                                    <li>팔을 올릴 때나 밤에 통증 심화</li>
+                                    <li>어깨에서 걸리는 소리</li>
+                                    <li>근력 감소 및 운동 범위 제한</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 무릎(관절)질환 -->
+            <div class="subject-detail" id="knee">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <img src="images/icons/leg.svg" alt="무릎질환 아이콘">
+                    </div>
+                    <div class="subject-title">
+                        <h2>무릎(관절) 질환</h2>
+                        <p>퇴행성 관절염, 연골판 손상 등 무릎 관련 질환 전문 치료</p>
+                    </div>
+                </div>
+                <div class="subject-content">
+                    <div class="condition-grid">
+                        <div class="condition-card">
+                            <h3>퇴행성 무릎관절염</h3>
+                            <div class="condition-info">
+                                <h4>질환 설명</h4>
+                                <ul>
+                                    <li>무릎 연골이 점차 소실되면서 인대, 힘줄 등에 염증이 생겨 통증이 발생하는 질환입니다.</li>
+                                    <li>초기에는 시큰거리는 정도지만, 악화되면 다리가 O자 형태로 변형될 수 있습니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="condition-card">
+                            <h3>반월상 연골판 손상</h3>
+                            <div class="condition-info">
+                                <h4>질환 설명</h4>
+                                <ul>
+                                    <li>충격을 흡수하는 반월상 연골판이 찢어져 통증이 나타나는 질환입니다.</li>
+                                    <li>과격한 스포츠 활동, 갑작스러운 방향 전환 등으로 발생할 수 있습니다.</li>
+                                </ul>
+                            </div>
+                            <div class="condition-info">
+                                <h4>주요 증상</h4>
+                                <ul>
+                                    <li>보행 시 무릎 통증</li>
+                                    <li>계단을 내려가거나 양반다리가 어려움</li>
+                                    <li>무릎에 물이 차거나 붓는 증상</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="condition-card">
+                            <h3>전/후방 십자인대 파열</h3>
+                            <div class="condition-info">
+                                <h4>질환 설명</h4>
+                                <ul>
+                                    <li>정강이뼈와 허벅지뼈를 연결하는 십자인대가 손상되거나 파열되어 통증이 발생하는 질환입니다.</li>
+                                    <li>스포츠 활동 중 손상이 대부분입니다.</li>
+                                </ul>
+                            </div>
+                            <div class="condition-info">
+                                <h4>주요 증상</h4>
+                                <ul>
+                                    <li>무릎의 불안정성</li>
+                                    <li>운동 범위 제한</li>
+                                    <li>심한 통증과 붓기</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 팔꿈치/수부질환 -->
+            <div class="subject-detail" id="elbow-hand">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <img src="images/icons/arm.svg" alt="팔꿈치/수부질환 아이콘">
+                    </div>
+                    <div class="subject-title">
+                        <h2>팔꿈치/수부 질환</h2>
+                        <p>테니스엘보, 손목터널증후군 등 팔꿈치/손목 질환 전문 치료</p>
+                    </div>
+                </div>
+                <div class="subject-content">
+                    <div class="condition-grid">
+                        <div class="condition-card">
+                            <h3>테니스엘보/골프엘보</h3>
+                            <div class="condition-info">
+                                <h4>질환 설명</h4>
+                                <ul>
+                                    <li><b>테니스엘보(외측상과염):</b> 팔꿈치 바깥쪽에 통증이 나타나는 질환입니다.</li>
+                                    <li><b>골프엘보(내측상과염):</b> 팔꿈치 안쪽에 통증이 나타나는 질환입니다.</li>
+                                    <li>무리한 손목과 팔꿈치 사용이 주된 원인입니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="condition-card">
+                            <h3>손목건초염 (드퀘르벵 증후군)</h3>
+                            <div class="condition-info">
+                                <h4>질환 설명</h4>
+                                <ul>
+                                    <li>손목 힘줄을 감싸는 막에 염증이 생겨 통증이 발생하는 질환입니다.</li>
+                                    <li>반복적인 손과 손목 사용으로 인해 발생합니다.</li>
+                                </ul>
+                            </div>
+                            <div class="condition-info">
+                                <h4>주요 증상</h4>
+                                <ul>
+                                    <li>손목 주위 부기 및 열감</li>
+                                    <li>손, 손목 사용 시 통증</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="condition-card">
+                            <h3>손목터널 증후군</h3>
+                            <div class="condition-info">
+                                <h4>질환 설명</h4>
+                                <ul>
+                                    <li>손목 터널이 좁아져 신경을 눌러 통증 및 감각 저하가 발생하는 질환입니다.</li>
+                                    <li>반복적인 가사노동, 스마트폰 사용 등 무리한 손목 사용이 원인입니다.</li>
+                                </ul>
+                            </div>
+                            <div class="condition-info">
+                                <h4>주요 증상</h4>
+                                <ul>
+                                    <li>엄지, 검지, 중지 손가락 저림 및 감각 저하</li>
+                                    <li>찌릿한 통증</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 족부(발)질환 -->
+            <div class="subject-detail" id="foot">
+                <div class="subject-header">
+                    <div class="subject-icon">
+                        <img src="images/icons/foot.svg" alt="족부질환 아이콘">
+                    </div>
+                    <div class="subject-title">
+                        <h2>족부(발) 질환</h2>
+                        <p>발목염좌, 족저근막염 등 발 관련 질환 전문 치료</p>
+                    </div>
+                </div>
+                <div class="subject-content">
+                    <div class="condition-grid">
+                        <div class="condition-card">
+                            <h3>발목염좌</h3>
+                            <div class="condition-info">
+                                <h4>질환 설명</h4>
+                                <ul>
+                                    <li>발목이 삐거나 접질려 인대나 뼈가 손상되는 외상성 질환입니다.</li>
+                                </ul>
+                            </div>
+                            <div class="condition-info">
+                                <h4>주요 증상 및 관리</h4>
+                                <ul>
+                                    <li>누르는 듯한 통증, 염증, 부기</li>
+                                    <li>PRICE(보호, 휴식, 얼음찜질, 압박, 거상) 원칙으로 관리</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="condition-card">
+                            <h3>족저근막염</h3>
+                            <div class="condition-info">
+                                <h4>질환 설명</h4>
+                                <ul>
+                                    <li>발바닥을 감싸는 족저근막에 염증이 생겨 통증이 발생하는 질환입니다.</li>
+                                    <li>무리한 운동이나 반복적인 충격이 원인입니다.</li>
+                                </ul>
+                            </div>
+                            <div class="condition-info">
+                                <h4>예방법</h4>
+                                <ul>
+                                    <li>편안한 신발 착용</li>
+                                    <li>발바닥에 무리가 가는 운동 자제</li>
+                                    <li>운동 후 충분한 휴식</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <h3>송파바른정형외과의원</h3>
+                    <p class="footer-tagline">정확한 진단, 전문적인 치료</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>서울 송파구 가락로 78, 3층 302~304호 (석촌동)</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>02-423-5501</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-subway"></i>
+                            <span>석촌역 8호선 620m (도보 7-8분)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>진료과목</h4>
+                        <ul>
+                            <li>경추(목) 질환</li>
+                            <li>요추(허리) 질환</li>
+                            <li>어깨 질환</li>
+                            <li>무릎(관절) 질환</li>
+                            <li>팔꿈치/수부 질환</li>
+                            <li>족부(발) 질환</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>치료프로그램</h4>
+                        <ul>
+                            <li>도수치료</li>
+                            <li>체외충격파치료</li>
+                            <li>주사(프롤로)치료</li>
+                            <li>재활교정치료</li>
+                            <li>신경차단술</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>진료시간</h4>
+                        <ul>
+                            <li>월,화,목,금 09:00-19:00</li>
+                            <li>수요일 09:00-13:30</li>
+                            <li>토요일 09:00-14:00</li>
+                            <li>점심시간 13:00-14:00</li>
+                            <li>일요일, 공휴일 휴진</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 송파바른정형외과의원. All rights reserved.</p>
+                <p class="footer-notice">본 웹사이트는 의료광고 심의를 거쳐 제작되었습니다.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

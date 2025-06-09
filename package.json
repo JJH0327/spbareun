@@ -1,0 +1,18 @@
+{
+  "name": "banner-manager",
+  "version": "1.0.0",
+  "description": "송파바른정형외과 배너 자동 관리 시스템",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.18.1",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.32.6"
+  },
+  "author": "Developer",
+  "license": "MIT"
+}

@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배너 관리자 - 송파바른정형외과</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .admin-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+        }
+        
+        .admin-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .admin-header h1 {
+            color: #1e293b;
+            font-size: 32px;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .admin-header p {
+            color: #64748b;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        .status-bar {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 16px 24px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .status-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #10b981;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .banner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .banner-item {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 24px;
+            border: 2px dashed #cbd5e1;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .banner-item:hover {
+            border-color: #475569;
+            background: #f1f5f9;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .banner-item.dragover {
+            border-color: #10b981;
+            background: #ecfdf5;
+            transform: scale(1.02);
+        }
+        
+        .banner-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .banner-title i {
+            color: #475569;
+            font-size: 20px;
+        }
+        
+        .banner-uploads {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .upload-section {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .upload-section h4 {
+            margin: 0 0 12px 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .current-image {
+            width: 100%;
+            height: 120px;
+            background: #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 12px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .current-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .current-image:hover .image-overlay {
+            opacity: 1;
+        }
+        
+        .file-input-wrapper {
+            position: relative;
+            display: block;
+            margin-bottom: 16px;
+        }
+        
+        .file-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .file-input-button {
+            background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+            font-size: 12px;
+            border: none;
+            width: 100%;
+        }
+        
+        .file-input-button:hover {
+            background: linear-gradient(135deg, #334155 0%, #475569 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(71, 85, 105, 0.3);
+        }
+        
+        .image-info {
+            font-size: 12px;
+            color: #64748b;
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .image-info strong {
+            color: #1e293b;
+        }
+        
+        .upload-all-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .upload-all-btn {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 200px;
+            justify-content: center;
+        }
+        
+        .upload-all-btn:hover {
+            background: linear-gradient(135deg, #047857 0%, #059669 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(16, 185, 129, 0.4);
+        }
+        
+        .upload-all-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .success-message, .error-message {
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: none;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .success-message {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+        
+        .error-message {
+            background: #fee2e2;
+            color: #dc2626;
+            border: 1px solid #ef4444;
+        }
+        
+        .loading-spinner {
+            display: none;
+            font-size: 20px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            margin-top: 20px;
+            overflow: hidden;
+            display: none;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        
+        .quick-actions {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .quick-btn {
+            background: white;
+            border: 2px solid #e2e8f0;
+            color: #475569;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .quick-btn:hover {
+            border-color: #475569;
+            background: #f8fafc;
+        }
+        
+        .preview-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .preview-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .preview-item {
+            text-align: center;
+        }
+        
+        .preview-image {
+            width: 100%;
+            height: 80px;
+            background: #f8fafc;
+            border-radius: 8px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 8px;
+        }
+        
+        .preview-label {
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        /* 모바일 반응형 */
+        @media (max-width: 768px) {
+            .banner-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .banner-uploads {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .upload-section {
+                padding: 12px;
+            }
+            
+            .current-image {
+                height: 100px;
+            }
+            
+            .preview-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .preview-image {
+                height: 60px !important;
+            }
+            
+            .admin-container {
+                padding: 20px;
+                margin: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .banner-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .preview-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .admin-container {
+                padding: 16px;
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>🚀 배너 관리자 (최대 5개)</h1>
+            <p>데스크톱용과 모바일용 이미지를 각각 업로드하세요 (데스크톱: 1920x700, 모바일: 360x600)</p>
+        </div>
+        
+        <div class="status-bar">
+            <div class="status-info">
+                <div class="status-indicator"></div>
+                <span>서버 연결됨</span>
+            </div>
+            <div class="quick-actions">
+                <button class="quick-btn" onclick="loadCurrentBanners()">
+                    <i class="fas fa-sync-alt"></i>
+                    새로고침
+                </button>
+                <button class="quick-btn" onclick="window.open('/index.html', '_blank')">
+                    <i class="fas fa-external-link-alt"></i>
+                    웹사이트 보기
+                </button>
+            </div>
+        </div>
+        
+        <div class="success-message" id="successMessage"></div>
+        <div class="error-message" id="errorMessage"></div>
+        
+        <div class="banner-grid">
+            <div class="banner-item" data-banner="1">
+                <div class="banner-title">
+                    <i class="fas fa-image"></i>
+                    배너 1
+                </div>
+                <div class="banner-uploads">
+                    <div class="upload-section">
+                        <h4>💻 데스크톱 (1920 x 700)</h4>
+                        <div class="current-image" id="preview1-desktop">
+                            데스크톱용 이미지를 선택하세요
+                        </div>
+                        <div class="file-input-wrapper">
+                            <input type="file" class="file-input" id="banner1-desktop" accept="image/*">
+                            <label for="banner1-desktop" class="file-input-button">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                데스크톱 이미지 선택
+                            </label>
+                        </div>
+                    </div>
+                    <div class="upload-section">
+                        <h4>📱 모바일 (360 x 600)</h4>
+                        <div class="current-image" id="preview1-mobile">
+                            모바일용 이미지를 선택하세요
+                        </div>
+                        <div class="file-input-wrapper">
+                            <input type="file" class="file-input" id="banner1-mobile" accept="image/*">
+                            <label for="banner1-mobile" class="file-input-button">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                모바일 이미지 선택
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="banner-item" data-banner="2">
+                <div class="banner-title">
+                    <i class="fas fa-image"></i>
+                    배너 2
+                </div>
+                <div class="banner-uploads">
+                    <div class="upload-section">
+                        <h4>💻 데스크톱 (1920 x 700)</h4>
+                        <div class="current-image" id="preview2-desktop">
+                            데스크톱용 이미지를 선택하세요
+                        </div>
+                        <div class="file-input-wrapper">
+                            <input type="file" class="file-input" id="banner2-desktop" accept="image/*">
+                            <label for="banner2-desktop" class="file-input-button">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                데스크톱 이미지 선택
+                            </label>
+                        </div>
+                    </div>
+                    <div class="upload-section">
+                        <h4>📱 모바일 (360 x 600)</h4>
+                        <div class="current-image" id="preview2-mobile">
+                            모바일용 이미지를 선택하세요
+                        </div>
+                        <div class="file-input-wrapper">
+                            <input type="file" class="file-input" id="banner2-mobile" accept="image/*">
+                            <label for="banner2-mobile" class="file-input-button">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                모바일 이미지 선택
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="banner-item" data-banner="3">
+                <div class="banner-title">
+                    <i class="fas fa-image"></i>
+                    배너 3
+                </div>
+                <div class="banner-uploads">
+                    <div class="upload-section">
+                        <h4>💻 데스크톱 (1920 x 700)</h4>
+                        <div class="current-image" id="preview3-desktop">
+                            데스크톱용 이미지를 선택하세요
+                        </div>
+                        <div class="file-input-wrapper">
+                            <input type="file" class="file-input" id="banner3-desktop" accept="image/*">
+                            <label for="banner3-desktop" class="file-input-button">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                데스크톱 이미지 선택
+                            </label>
+                        </div>
+                    </div>
+                    <div class="upload-section">
+                        <h4>📱 모바일 (360 x 600)</h4>
+                        <div class="current-image" id="preview3-mobile">
+                            모바일용 이미지를 선택하세요
+                        </div>
+                        <div class="file-input-wrapper">
+                            <input type="file" class="file-input" id="banner3-mobile" accept="image/*">
+                            <label for="banner3-mobile" class="file-input-button">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                모바일 이미지 선택
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="banner-item" data-banner="4">
+                <div class="banner-title">
+                    <i class="fas fa-image"></i>
+                    배너 4
+                </div>
+                <div class="banner-uploads">
+                    <div class="upload-section">
+                        <h4>💻 데스크톱 (1920 x 700)</h4>
+                        <div class="current-image" id="preview4-desktop">
+                            데스크톱용 이미지를 선택하세요
+                        </div>
+                        <div class="file-input-wrapper">
+                            <input type="file" class="file-input" id="banner4-desktop" accept="image/*">
+                            <label for="banner4-desktop" class="file-input-button">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                데스크톱 이미지 선택
+                            </label>
+                        </div>
+                    </div>
+                    <div class="upload-section">
+                        <h4>📱 모바일 (360 x 600)</h4>
+                        <div class="current-image" id="preview4-mobile">
+                            모바일용 이미지를 선택하세요
+                        </div>
+                        <div class="file-input-wrapper">
+                            <input type="file" class="file-input" id="banner4-mobile" accept="image/*">
+                            <label for="banner4-mobile" class="file-input-button">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                모바일 이미지 선택
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="banner-item" data-banner="5">
+                <div class="banner-title">
+                    <i class="fas fa-image"></i>
+                    배너 5
+                </div>
+                <div class="banner-uploads">
+                    <div class="upload-section">
+                        <h4>💻 데스크톱 (1920 x 700)</h4>
+                        <div class="current-image" id="preview5-desktop">
+                            데스크톱용 이미지를 선택하세요
+                        </div>
+                        <div class="file-input-wrapper">
+                            <input type="file" class="file-input" id="banner5-desktop" accept="image/*">
+                            <label for="banner5-desktop" class="file-input-button">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                데스크톱 이미지 선택
+                            </label>
+                        </div>
+                    </div>
+                    <div class="upload-section">
+                        <h4>📱 모바일 (360 x 600)</h4>
+                        <div class="current-image" id="preview5-mobile">
+                            모바일용 이미지를 선택하세요
+                        </div>
+                        <div class="file-input-wrapper">
+                            <input type="file" class="file-input" id="banner5-mobile" accept="image/*">
+                            <label for="banner5-mobile" class="file-input-button">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                모바일 이미지 선택
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="upload-all-section">
+            <button class="upload-all-btn" id="uploadAllBtn" disabled>
+                <i class="fas fa-rocket"></i>
+                <span class="loading-spinner">⟳</span>
+                <span class="btn-text">배너 업로드하기</span>
+            </button>
+            <div class="progress-bar" id="progressBar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p style="margin-top: 16px; color: #64748b; font-size: 14px;">
+                업로드하면 웹사이트에 즉시 반영됩니다
+            </p>
+        </div>
+        
+        <div class="preview-section">
+            <div class="preview-title">
+                <i class="fas fa-eye"></i>
+                현재 배너 미리보기
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <h4 style="color: #1e293b; margin-bottom: 15px; font-size: 16px; font-weight: 600;">
+                    <i class="fas fa-desktop"></i> 데스크톱 (1920 x 700)
+                </h4>
+                <div class="preview-grid">
+                    <div class="preview-item">
+                        <div class="preview-image" id="currentPreviewDesktop1" style="height: 100px;"></div>
+                        <div class="preview-label">배너 1</div>
+                    </div>
+                    <div class="preview-item">
+                        <div class="preview-image" id="currentPreviewDesktop2" style="height: 100px;"></div>
+                        <div class="preview-label">배너 2</div>
+                    </div>
+                    <div class="preview-item">
+                        <div class="preview-image" id="currentPreviewDesktop3" style="height: 100px;"></div>
+                        <div class="preview-label">배너 3</div>
+                    </div>
+                    <div class="preview-item">
+                        <div class="preview-image" id="currentPreviewDesktop4" style="height: 100px;"></div>
+                        <div class="preview-label">배너 4</div>
+                    </div>
+                    <div class="preview-item">
+                        <div class="preview-image" id="currentPreviewDesktop5" style="height: 100px;"></div>
+                        <div class="preview-label">배너 5</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h4 style="color: #1e293b; margin-bottom: 15px; font-size: 16px; font-weight: 600;">
+                    <i class="fas fa-mobile-alt"></i> 모바일 (360 x 600)
+                </h4>
+                <div class="preview-grid">
+                    <div class="preview-item">
+                        <div class="preview-image" id="currentPreviewMobile1" style="height: 120px;"></div>
+                        <div class="preview-label">배너 1</div>
+                    </div>
+                    <div class="preview-item">
+                        <div class="preview-image" id="currentPreviewMobile2" style="height: 120px;"></div>
+                        <div class="preview-label">배너 2</div>
+                    </div>
+                    <div class="preview-item">
+                        <div class="preview-image" id="currentPreviewMobile3" style="height: 120px;"></div>
+                        <div class="preview-label">배너 3</div>
+                    </div>
+                    <div class="preview-item">
+                        <div class="preview-image" id="currentPreviewMobile4" style="height: 120px;"></div>
+                        <div class="preview-label">배너 4</div>
+                    </div>
+                    <div class="preview-item">
+                        <div class="preview-image" id="currentPreviewMobile5" style="height: 120px;"></div>
+                        <div class="preview-label">배너 5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script>
+        // 전역 변수
+        const selectedFiles = {};
+        let isUploading = false;
+        
+        // 페이지 로드 시 현재 배너 로드
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCurrentBanners();
+            initializeEventHandlers();
+        });
+        
+        // 이벤트 핸들러 초기화
+        function initializeEventHandlers() {
+            // 파일 선택 이벤트 (데스크톱/모바일 분리)
+            for (let i = 1; i <= 5; i++) {
+                // 데스크톱 이미지
+                const desktopInput = document.getElementById(`banner${i}-desktop`);
+                if (desktopInput) {
+                    desktopInput.addEventListener('change', function(e) {
+                        handleFileSelect(e.target.files[0], i, 'desktop');
+                    });
+                }
+                
+                // 모바일 이미지
+                const mobileInput = document.getElementById(`banner${i}-mobile`);
+                if (mobileInput) {
+                    mobileInput.addEventListener('change', function(e) {
+                        handleFileSelect(e.target.files[0], i, 'mobile');
+                    });
+                }
+                
+                // 드래그 앤 드롭 이벤트
+                const bannerItem = document.querySelector(`[data-banner="${i}"]`);
+                if (bannerItem) {
+                    bannerItem.addEventListener('dragover', function(e) {
+                        e.preventDefault();
+                        bannerItem.classList.add('dragover');
+                    });
+                    
+                    bannerItem.addEventListener('dragleave', function(e) {
+                        e.preventDefault();
+                        bannerItem.classList.remove('dragover');
+                    });
+                    
+                    bannerItem.addEventListener('drop', function(e) {
+                        e.preventDefault();
+                        bannerItem.classList.remove('dragover');
+                        
+                        const files = e.dataTransfer.files;
+                        if (files.length > 0) {
+                            // 첫 번째 파일을 데스크톱으로 설정
+                            handleFileSelect(files[0], i, 'desktop');
+                            showSuccess(`배너 ${i} 데스크톱 이미지가 선택되었습니다.`);
+                        }
+                    });
+                }
+            }
+            
+            // 업로드 버튼 이벤트
+            document.getElementById('uploadAllBtn').addEventListener('click', uploadAllBanners);
+        }
+        
+        // 파일 선택 처리
+        function handleFileSelect(file, bannerId, type) {
+            if (!file) return;
+            
+            // 파일 크기 확인 (5MB)
+            if (file.size > 5 * 1024 * 1024) {
+                showError('파일 크기가 너무 큽니다. 5MB 이하의 파일을 선택해주세요.');
+                return;
+            }
+            
+            // 파일 타입 확인
+            if (!file.type.startsWith('image/')) {
+                showError('이미지 파일만 선택할 수 있습니다.');
+                return;
+            }
+            
+            // 파일 저장
+            const key = `banner${bannerId}-${type}`;
+            selectedFiles[key] = file;
+            
+            // 미리보기 표시
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.getElementById(`preview${bannerId}-${type}`);
+                if (preview) {
+                    preview.style.backgroundImage = `url(${e.target.result})`;
+                    preview.innerHTML = '';
+                }
+            };
+            reader.readAsDataURL(file);
+            
+            // 업로드 버튼 활성화 확인
+            updateUploadButton();
+            
+            showSuccess(`배너 ${bannerId} ${type === 'desktop' ? '데스크톱' : '모바일'} 이미지가 선택되었습니다.`);
+        }
+        
+        // 업로드 버튼 상태 업데이트
+        function updateUploadButton() {
+            const uploadBtn = document.getElementById('uploadAllBtn');
+            const hasFiles = Object.keys(selectedFiles).length > 0;
+            
+            uploadBtn.disabled = !hasFiles || isUploading;
+        }
+        
+        // 모든 배너 업로드
+        async function uploadAllBanners() {
+            if (isUploading || Object.keys(selectedFiles).length === 0) return;
+            
+            isUploading = true;
+            updateUploadButton();
+            
+            const uploadBtn = document.getElementById('uploadAllBtn');
+            const btnText = uploadBtn.querySelector('.btn-text');
+            const spinner = uploadBtn.querySelector('.loading-spinner');
+            const progressBar = document.getElementById('progressBar');
+            const progressFill = document.getElementById('progressFill');
+            
+            // UI 업데이트
+            btnText.textContent = '업로드 중...';
+            spinner.style.display = 'inline';
+            progressBar.style.display = 'block';
+            progressFill.style.width = '0%';
+            
+            try {
+                const formData = new FormData();
+                
+                // 선택된 파일들을 FormData에 추가
+                Object.keys(selectedFiles).forEach(key => {
+                    formData.append(key, selectedFiles[key]);
+                });
+                
+                // 진행률 애니메이션
+                let progress = 0;
+                const progressInterval = setInterval(() => {
+                    progress += 10;
+                    progressFill.style.width = Math.min(progress, 90) + '%';
+                }, 100);
+                
+                // 서버로 업로드
+                const response = await fetch('/api/upload-banners', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                clearInterval(progressInterval);
+                progressFill.style.width = '100%';
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showSuccess(`✅ ${result.message}\n웹사이트를 새로고침하여 확인하세요!`);
+                    
+                    // 선택된 파일 초기화
+                    Object.keys(selectedFiles).forEach(key => {
+                        delete selectedFiles[key];
+                    });
+                    
+                    // 현재 배너 다시 로드
+                    setTimeout(() => {
+                        loadCurrentBanners();
+                    }, 1000);
+                    
+                } else {
+                    showError(result.error || '업로드 중 오류가 발생했습니다.');
+                }
+                
+            } catch (error) {
+                console.error('업로드 오류:', error);
+                showError('네트워크 오류가 발생했습니다.');
+            } finally {
+                // UI 복원
+                isUploading = false;
+                btnText.textContent = '배너 업로드하기';
+                spinner.style.display = 'none';
+                updateUploadButton();
+                
+                setTimeout(() => {
+                    progressBar.style.display = 'none';
+                }, 2000);
+            }
+        }
+        
+        // 현재 배너 이미지 로드
+        async function loadCurrentBanners() {
+            try {
+                const response = await fetch('/api/banners');
+                const result = await response.json();
+                
+                if (result.banners) {
+                    result.banners.forEach(banner => {
+                        const desktopPreview = document.getElementById(`currentPreviewDesktop${banner.id}`);
+                        const mobilePreview = document.getElementById(`currentPreviewMobile${banner.id}`);
+                        
+                        // 데스크톱 이미지
+                        if (banner.desktop.exists && banner.desktop.url) {
+                            if (desktopPreview) {
+                                desktopPreview.style.backgroundImage = `url(${banner.desktop.url}?t=${Date.now()})`;
+                                desktopPreview.style.backgroundSize = 'cover';
+                                desktopPreview.style.backgroundPosition = 'center';
+                            }
+                        } else {
+                            if (desktopPreview) {
+                                desktopPreview.style.backgroundImage = 'none';
+                                desktopPreview.style.background = '#f8fafc';
+                            }
+                        }
+                        
+                        // 모바일 이미지
+                        if (banner.mobile.exists && banner.mobile.url) {
+                            if (mobilePreview) {
+                                mobilePreview.style.backgroundImage = `url(${banner.mobile.url}?t=${Date.now()})`;
+                                mobilePreview.style.backgroundSize = 'cover';
+                                mobilePreview.style.backgroundPosition = 'center';
+                            }
+                        } else {
+                            if (mobilePreview) {
+                                mobilePreview.style.backgroundImage = 'none';
+                                mobilePreview.style.background = '#f8fafc';
+                            }
+                        }
+                    });
+                    
+                    console.log(`✅ 총 ${result.totalActive}개의 활성 배너 로드됨`);
+                }
+            } catch (error) {
+                console.error('배너 로드 오류:', error);
+            }
+        }
+        
+        // 성공 메시지 표시
+        function showSuccess(message) {
+            const successDiv = document.getElementById('successMessage');
+            const errorDiv = document.getElementById('errorMessage');
+            
+            errorDiv.style.display = 'none';
+            successDiv.textContent = message;
+            successDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                successDiv.style.display = 'none';
+            }, 5000);
+        }
+        
+        // 에러 메시지 표시
+        function showError(message) {
+            const successDiv = document.getElementById('successMessage');
+            const errorDiv = document.getElementById('errorMessage');
+            
+            successDiv.style.display = 'none';
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                errorDiv.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html> 
