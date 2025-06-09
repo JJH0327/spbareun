@@ -52,4 +52,13 @@ coverage/
 
 # Temporary folders
 tmp/
-temp/ 
+temp/
+
+# Large image files (optional)
+*.psd
+*.ai
+*.sketch
+
+# Cache files
+.cache/
+.parcel-cache/ 
